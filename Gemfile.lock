@@ -81,6 +81,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
+    pg (1.4.5)
     puma (3.12.6)
     racc (1.6.0)
     rack (2.2.4)
@@ -105,6 +106,11 @@ GEM
       loofah (~> 2.3)
     rails-ujs (5.1.0.beta1)
       railties (>= 3.1)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.7.2)
       actionpack (= 5.0.7.2)
       activesupport (= 5.0.7.2)
@@ -172,9 +178,11 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  pg (~> 1.4, >= 1.4.3)
   puma (~> 3.4)
   rails (~> 5.0.0)
   rails-ujs (~> 5.1.0.beta1)
+  rails_12factor
   sass-rails (~> 5.0)
   semantic-ui-sass (~> 2.2, >= 2.2.1.1)
   spring
