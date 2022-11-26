@@ -13,18 +13,18 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  config.action_controller.perform_caching = true
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+    config.action_controller.perform_caching = true
 
-  config.cache_store = :redis_store, {
-    host: 'localhost',
-    post: 6379,
-    db: 0,
-    namespace: '056redus'
-  }
-  config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=172800'
-  }
-  
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      'Cache-Control' => 'public, max-age=172800'
+    }
+  else
+    config.action_controller.perform_caching = false
+
+    config.cache_store = :null_store
+  end
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -51,7 +51,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  # config.action_cable.disable_request_forgery_protection = true
-  # config.action_cable.allowed_request_origins = ['https://c9.io']
 end
