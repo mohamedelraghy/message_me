@@ -35,6 +35,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Use sqlite3 as the database for Active Record
   
+  gem 'sqlite3', '~> 1.3.11'
   # Use Puma as the app server
   gem 'byebug', platform: :mri
 end
@@ -59,4 +60,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb'
 gem 'redis', '~> 5.0', '>= 5.0.5'
-gem 'sqlite3', '~> 1.3.11'
